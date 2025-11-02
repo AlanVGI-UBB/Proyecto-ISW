@@ -1,0 +1,26 @@
+{
+  "name": "sistema-evaluaciones-orales",
+  "version": "1.0.0",
+  "description": "Sistema de Evaluaciones Orales - Facultad de Derecho",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "start:backend": "cd backend && npm start",
+    "setup": "powershell -ExecutionPolicy Bypass -File setup.ps1",
+    "start": "powershell -ExecutionPolicy Bypass -File start.ps1",
+    "check": "powershell -ExecutionPolicy Bypass -File check.ps1",
+    "stop": "powershell -ExecutionPolicy Bypass -File stop.ps1"
+  },
+  "keywords": [
+    "evaluaciones",
+    "derecho",
+    "pern",
+    "react",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "private": true
+}
