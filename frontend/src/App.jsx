@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Evaluaciones from './pages/Evaluaciones';
 import { authService } from './services/authService';
 
 // Componente para rutas protegidas
@@ -42,6 +43,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/evaluaciones" 
+          element={
+            <ProtectedRoute>
+              <Evaluaciones />
             </ProtectedRoute>
           } 
         />
