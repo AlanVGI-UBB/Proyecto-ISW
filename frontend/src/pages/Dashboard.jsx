@@ -6,6 +6,7 @@ import './Dashboard.css';
 const Dashboard = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [isDevMode, setIsDevMode] = useState(false);
 
   useEffect(() => {
     // Verificar si el usuario está autenticado
@@ -17,10 +18,15 @@ const Dashboard = () => {
     // Obtener datos del usuario
     const currentUser = authService.getCurrentUser();
     setUser(currentUser);
+
+    // Verificar si está en modo desarrollo
+    const devMode = localStorage.getItem('devMode') === 'true';
+    setIsDevMode(devMode);
   }, [navigate]);
 
   const handleLogout = () => {
     authService.logout();
+    localStorage.removeItem('devMode'); // Limpiar modo dev
     navigate('/');
   };
 
@@ -75,6 +81,31 @@ const Dashboard = () => {
       {/* Main Content */}
       <main className="dashboard-main">
         <div className="dashboard-content">
+          {/* Dev Mode Banner */}
+          {isDevMode && (
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: 'white',
+              padding: '1rem',
+              borderRadius: '8px',
+              marginBottom: '1.5rem',
+              textAlign: 'center'
+            }}>
+              <span style={{
+                display: 'inline-block',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '20px',
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                marginRight: '0.5rem'
+              }}>
+                🚀 MODO DESARROLLO
+              </span>
+              <span>Sesión iniciada sin autenticación</span>
+            </div>
+          )}
+
           <div className="welcome-card">
             <h1>¡Bienvenido al Sistema!</h1>
             <p>

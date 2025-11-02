@@ -5,6 +5,8 @@ import './Login.css';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [selectedRole, setSelectedRole] = useState('estudiante');
+  const [devMode, setDevMode] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -20,6 +22,10 @@ const Login = () => {
       ...prev,
       [name]: value
     }));
+    // Si escribe en email o password, desactivar modo desarrollo
+    if (name === 'email' || name === 'password') {
+      setDevMode(false);
+    }
     // Limpiar error del campo cuando el usuario escribe
     if (errors[name]) {
       setErrors(prev => ({
@@ -27,6 +33,34 @@ const Login = () => {
         [name]: ''
       }));
     }
+  };
+
+  const handleRoleChange = (e) => {
+    setSelectedRole(e.target.value);
+    setDevMode(true);
+    // Limpiar campos de login
+    setFormData({ email: '', password: '' });
+    setErrors({});
+  };
+
+  const handleDevLogin = () => {
+    // Crear usuario falso basado en el rol seleccionado
+    const fakeUser = {
+      id: Math.floor(Math.random() * 1000),
+      email: `${selectedRole}@dev.local`,
+      nombre: selectedRole.charAt(0).toUpperCase() + selectedRole.slice(1),
+      apellido: 'Desarrollo',
+      rol: selectedRole,
+      activo: true
+    };
+
+    // Guardar en localStorage
+    localStorage.setItem('user', JSON.stringify(fakeUser));
+    localStorage.setItem('token', 'dev-token-' + Date.now());
+    localStorage.setItem('devMode', 'true');
+
+    // Navegar al dashboard
+    navigate('/dashboard');
   };
 
   const validateForm = () => {
@@ -51,6 +85,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Si está en modo desarrollo, usar login falso
+    if (devMode) {
+      handleDevLogin();
+      return;
+    }
+
     if (!validateForm()) {
       return;
     }
@@ -112,6 +152,28 @@ const Login = () => {
 
           {/* Login Form */}
           <form className="login-form" onSubmit={handleSubmit}>
+            {/* Selector de Rol */}
+            <div className="form-group">
+              <label htmlFor="role">Modo Desarrollo - Rol</label>
+              <select
+                id="role"
+                name="role"
+                className="form-input form-select"
+                value={selectedRole}
+                onChange={handleRoleChange}
+                disabled={loading}
+                style={{
+                  paddingLeft: '1rem',
+                  cursor: 'pointer',
+                  backgroundColor: devMode ? '#f0f9ff' : 'white'
+                }}
+              >
+                <option value="estudiante">Estudiante</option>
+                <option value="profesor">Profesor</option>
+                <option value="administrador">Administrador</option>
+              </select>
+            </div>
+
             {/* Email Field */}
             <div className="form-group">
               <label htmlFor="email">Correo Institucional</label>
@@ -124,10 +186,11 @@ const Login = () => {
                   id="email"
                   name="email"
                   className={`form-input ${errors.email ? 'error' : ''}`}
-                  placeholder="Ingrese su correo"
+                  placeholder="Ingrese su correo (o deje vacío)"
                   value={formData.email}
                   onChange={handleChange}
                   disabled={loading}
+                  required={!devMode}
                 />
               </div>
               {errors.email && <span className="error-message">{errors.email}</span>}
@@ -146,10 +209,11 @@ const Login = () => {
                   id="password"
                   name="password"
                   className={`form-input ${errors.password ? 'error' : ''}`}
-                  placeholder="Ingrese su contraseña"
+                  placeholder="Ingrese su contraseña (o deje vacío)"
                   value={formData.password}
                   onChange={handleChange}
                   disabled={loading}
+                  required={!devMode}
                 />
                 <button
                   type="button"
