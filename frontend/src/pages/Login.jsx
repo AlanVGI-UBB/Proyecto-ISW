@@ -6,7 +6,7 @@ import './Login.css';
 const Login = () => {
   const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState('estudiante');
-  const [devMode, setDevMode] = useState(false);
+  const [devMode, setDevMode] = useState(true); // Iniciar en true por defecto
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -23,7 +23,7 @@ const Login = () => {
       [name]: value
     }));
     // Si escribe en email o password, desactivar modo desarrollo
-    if (name === 'email' || name === 'password') {
+    if ((name === 'email' || name === 'password') && value.trim() !== '') {
       setDevMode(false);
     }
     // Limpiar error del campo cuando el usuario escribe
