@@ -1,0 +1,127 @@
+/* Header Component Styles */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #003d7a;
+  border: none;
+  z-index: 1000;
+  height: 64px;
+}
+
+.header-container {
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-logo {
+  font-size: 1.75rem;
+  line-height: 1;
+  background: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.header-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.settings-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.settings-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.settings-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 0.75rem;
+  }
+
+  .header-title {
+    font-size: 0.95rem;
+  }
+
+  .header-logo {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .settings-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .settings-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    height: 56px;
+  }
+
+  .header-container {
+    padding: 0 0.5rem;
+  }
+
+  .header-title {
+    font-size: 0.875rem;
+  }
+
+  .header-logo {
+    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .settings-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .settings-icon {
+    width: 18px;
+    height: 18px;
+  }
+}

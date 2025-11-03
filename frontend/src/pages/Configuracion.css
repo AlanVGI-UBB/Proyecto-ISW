@@ -1,0 +1,330 @@
+/* Configuracion Container */
+.configuracion-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 80px;
+  padding-top: 70px; /* Espacio para el header fijo */
+}
+
+/* Main Content */
+.configuracion-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.configuracion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Page Title */
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003d7a;
+  margin: 0 0 1rem 0;
+}
+
+/* Tabs */
+.config-tabs {
+  display: flex;
+  gap: 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button {
+  flex: 1;
+  padding: 1rem;
+  background: #e5e7eb;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-button.active {
+  background: white;
+  color: #003d7a;
+}
+
+.tab-button:hover:not(.active) {
+  background: #d1d5db;
+}
+
+/* Tab Content */
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Info Card */
+.info-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #003d7a;
+  margin: 0 0 0.5rem 0;
+}
+
+.info-email {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0 0 0.25rem 0;
+}
+
+.info-role {
+  font-size: 0.9375rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.info-asignatura {
+  font-size: 0.9375rem;
+  color: #6b7280;
+  margin: 0.25rem 0 0 0;
+}
+
+/* Config Section */
+.config-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #003d7a;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Contact Item */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 8px;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.contact-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.contact-value {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin: 0;
+  font-weight: 500;
+}
+
+.contact-input {
+  font-size: 1rem;
+  color: #1a1a1a;
+  padding: 0.5rem;
+  border: 2px solid #003d7a;
+  border-radius: 6px;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: #002a54;
+}
+
+/* Edit Button */
+.edit-button {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.edit-button:hover {
+  background: #e5e7eb;
+  color: #003d7a;
+}
+
+/* Logout Button */
+.btn-logout {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn-logout:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+/* Empty State */
+.empty-config {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  color: #9ca3af;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.empty-config p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Settings Button Active State */
+.settings-button.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .configuracion-main {
+    padding: 1.5rem 1rem;
+    padding-top: calc(68px + 1.5rem);
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .info-name {
+    font-size: 1.25rem;
+  }
+
+  .config-section {
+    padding: 1.25rem;
+  }
+
+  .contact-item {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contact-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .edit-button {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .tab-button {
+    padding: 0.875rem 0.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .info-card {
+    padding: 1.25rem;
+  }
+
+  .config-section {
+    padding: 1rem;
+  }
+
+  .contact-item {
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.125rem;
+  }
+
+  .btn-logout {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .dashboard-header,
+  .bottom-nav,
+  .edit-button,
+  .btn-logout,
+  .config-tabs {
+    display: none;
+  }
+
+  .configuracion-main {
+    padding-top: 1rem;
+  }
+}
