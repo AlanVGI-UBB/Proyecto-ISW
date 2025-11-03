@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Evaluaciones from './pages/Evaluaciones';
+import Configuracion from './pages/Configuracion';
 import { authService } from './services/authService';
 
 // Componente para rutas protegidas
@@ -51,6 +52,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Evaluaciones />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/configuracion" 
+          element={
+            <ProtectedRoute>
+              <Configuracion />
             </ProtectedRoute>
           } 
         />

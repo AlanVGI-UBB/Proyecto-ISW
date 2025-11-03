@@ -3,6 +3,15 @@
 -- Script de Configuración Inicial de Base de Datos
 -- ============================================
 
+-- IMPORTANTE: Ejecuta este script en dos partes:
+-- PARTE 1: Ejecuta solo las líneas 9-16 conectado a la base de datos 'postgres'
+-- PARTE 2: Después, conéctate a 'evaluaciones_orales' y ejecuta el resto
+
+-- ============================================
+-- PARTE 1: Crear la Base de Datos
+-- ============================================
+-- Ejecuta esto conectado a 'postgres' (la base de datos por defecto)
+
 -- Eliminar la base de datos si existe (CUIDADO: esto borra todos los datos)
 -- DROP DATABASE IF EXISTS evaluaciones_orales;
 
@@ -16,8 +25,13 @@ CREATE DATABASE evaluaciones_orales
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
--- Conectarse a la base de datos
-\c evaluaciones_orales
+-- ============================================
+-- PARTE 2: Verificar la Base de Datos
+-- ============================================
+-- Ahora cierra esta ventana de Query Tool
+-- Haz clic derecho en "evaluaciones_orales" en el árbol de la izquierda
+-- Selecciona "Query Tool" para abrir una nueva ventana conectada a esta BD
+-- Luego ejecuta las siguientes líneas:
 
 -- Mensaje de confirmación
 SELECT 'Base de datos "evaluaciones_orales" creada exitosamente' AS status;

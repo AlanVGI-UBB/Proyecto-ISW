@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/authService';
+import Header from '../components/Header';
 import './Evaluaciones.css';
 
 const Evaluaciones = () => {
@@ -70,20 +71,7 @@ const Evaluaciones = () => {
   return (
     <div className="evaluaciones-container">
       {/* Header */}
-      <header className="dashboard-header">
-        <div className="header-content">
-          <div className="header-left">
-            <div className="header-logo">⚖️</div>
-            <h1 className="header-title">Facultad de Derecho</h1>
-          </div>
-          <button className="settings-button" onClick={() => alert('Configuración')}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6m-13.2 5.2l4.2-4.2m0-6l-4.2-4.2"/>
-            </svg>
-          </button>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="evaluaciones-main">
